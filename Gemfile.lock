@@ -125,9 +125,7 @@ GEM
     nokogiri (1.13.8)
       mini_portile2 (~> 2.8.0)
       racc (~> 1.4)
-    nokogiri (1.13.8-x86_64-linux)
-      racc (~> 1.4)
-    pg (0.21.0)
+    pg (1.4.4)
     public_suffix (5.0.0)
     puma (5.6.5)
       nio4r (~> 2.0)
@@ -186,7 +184,6 @@ GEM
       sprockets (>= 3.0.0)
     sqlite3 (1.5.3)
       mini_portile2 (~> 2.8.0)
-    sqlite3 (1.5.3-x86_64-linux)
     stimulus-rails (1.1.0)
       railties (>= 6.0.0)
     thor (1.2.1)
@@ -216,7 +213,6 @@ GEM
 
 PLATFORMS
   ruby
-  x86_64-linux
 
 DEPENDENCIES
   bootsnap
@@ -224,7 +220,7 @@ DEPENDENCIES
   debug
   importmap-rails
   jbuilder
-  pg (~> 0.21)
+  pg
   puma (~> 5.0)
   rails (~> 7.0.4)
   rails_12factor
@@ -241,4 +237,4 @@ RUBY VERSION
    ruby 2.7.0p0
 
 BUNDLED WITH
-   2.3.16
+   2.1.2
