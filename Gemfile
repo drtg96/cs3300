@@ -55,6 +55,9 @@ group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
   # Use sqlite3 as the database for Active Record
   gem "sqlite3", "~> 1.4"
+  gem 'factory_bot_rails'
+  gem 'rspec-rails', '~> 4.0.1'
+  gem "capybara"
 end
 
 group :development do
@@ -75,7 +78,4 @@ group :test do
   gem 'simplecov', require: false
 end
 
-group :development, :test do
-  gem 'rspec-rails', '~> 4.0.1'
-  gem "capybara"
-end
+gem 'devise'
