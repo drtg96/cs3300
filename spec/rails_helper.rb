@@ -1,16 +1,3 @@
-require 'simplecov'
-SimpleCov.start 'rails' do
-    add_filter '/bin/'
-    add_filter '/db/'
-    add_filter '/spec/' # for rspec
-    add_filter '/app/mailers/application_mailer.rb'
-    add_filter '/app/channels/application_cable/channel.rb'
-    add_filter '/app/channels/application_cable/connection.rb'
-    add_filter '/app/jobs/application_job.rb'
-  end
-
-require 'factory_bot_rails'
-
 # This file is copied to spec/ when you run 'rails generate rspec:install'
 require 'spec_helper'
 ENV['RAILS_ENV'] ||= 'test'
@@ -27,6 +14,7 @@ require 'rspec/rails'
 #adding devise
 require 'devise'
 require_relative 'support/controller_macros'
+require 'factory_bot_rails'
 
 # Requires supporting ruby files with custom matchers and macros, etc, in
 # spec/support/ and its subdirectories. Files matching `spec/**/*_spec.rb` are
@@ -88,3 +76,14 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
+
+require 'simplecov'
+SimpleCov.start 'rails' do
+    add_filter '/bin/'
+    add_filter '/db/'
+    add_filter '/spec/' # for rspec
+    add_filter '/app/mailers/application_mailer.rb'
+    add_filter '/app/channels/application_cable/channel.rb'
+    add_filter '/app/channels/application_cable/connection.rb'
+    add_filter '/app/jobs/application_job.rb'
+  end

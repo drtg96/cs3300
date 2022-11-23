@@ -1,14 +1,26 @@
-<p style="color: green"><%= notice %></p>
+<p id="notice"><%= notice %></p>
 
-<h1>Projects</h1>
+  <div class='jumbotron jumbotron-fluid'>
+    <div class="w-100 wp-3 mb-2 text-nowrap fs-1 fw-bold text-white bg-secondary bg-gradient text-center">Daniel Thomson's Portfolio</div>
+      
+    <h2>Projects</h2>
 
-<div id="projects">
-  <% @projects.each do |project| %>
-    <%= render project %>
-    <p>
-      <%= link_to "Show this project", project %>
-    </p>
-  <% end %>
+<div class='container'>
+  <% @projects.each do |project| %> 
+  <div class='row'>      
+    <div class='card mb-2'>
+      <div class='card-body'>
+        <p><h4><%= project.title %></h4></p>
+        <!-- <p><%= project.description %></p> -->
+        <td><%= link_to 'Learn more', project %></td>
+        <% if user_signed_in? %>
+          || <td><%= link_to 'Edit', edit_project_path(project) %></td>
+          || <td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <% end %>
+      </div>
+    </div>
+  </div>
+<% end %>
 </div>
 
-<%= link_to "New project", new_project_path %>
+<p>Hi, my name is Daniel T, this is my portfolio. Enjoy!</p>

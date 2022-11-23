@@ -2,15 +2,31 @@
 <html>
   <head>
     <title>My Portfolio</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
+    <nav class="navbar navbar-dark" style="background-color: #e3f2fd;">
+      <div class="container">
+        <a class="navbar-brand text-dark fs-3" href="/projects">Home</a>
+        <div class="align-right row">
+         <% if user_signed_in? %>     
+            <%= button_to "Log out", destroy_user_session_path, method: :delete, :class => "btn btn-outline-dark btn-defualt mb-2"%>
+            <%= button_to "New Project", new_project_path, method: :get, :class => "btn btn-outline-dark btn-defualt"%>
+          <% else %>
+            <%= button_to "Log in", new_user_session_path, method: :get, :class => "btn btn-outline-dark btn-default mb-2" %>
+            <%= button_to "Sign up", new_user_registration_path, method: :get, :class => "btn btn-outline-dark btn-defualt" %>
+          <% end %>
+        </div>
+      </div>
+    </nav>
+
+  <div class="container">
     <%= yield %>
+  </div>
+
   </body>
 </html>

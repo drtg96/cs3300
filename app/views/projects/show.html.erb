@@ -1,10 +1,17 @@
 <p style="color: green"><%= notice %></p>
 
-<%= render @project %>
+  <div class='jumbotron jumbotron-fluid'>
+      <div class="w-100 wp-3 mb-2 text-nowrap fs-1 fw-bold text-white bg-success text-center"> <%= @project.title %> </div>
 
-<div>
-  <%= link_to "Edit this project", edit_project_path(@project) %> |
-  <%= link_to "Back to projects", projects_path %>
+      <div class="p-0 mb-5 text-wrap fs-5 text-dark">
+        <span class="border-start"> <%= @project.description %> </span>
+      </div>
+  </div>
 
-  <%= button_to "Destroy this project", @project, method: :delete %>
-</div>
+<% if user_signed_in? %>
+  
+  <div class="p-3 fs-5 fw-bold text-primary bg-dark"> 
+      <%= link_to 'Edit', edit_project_path(@project) %>
+      || <%= link_to "Delete", @project, method: :delete %>
+  </div>
+<% end %>

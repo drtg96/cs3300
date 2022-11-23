@@ -11,17 +11,18 @@
     </div>
   <% end %>
 
-  <div>
-    <%= form.label :title, style: "display: block" %>
-    <%= form.text_field :title %>
+  <div class='mb-auto'>
+     <label for='title' class='form-label'>Title</label>
+     <input type='text' class='form-control' name='project[title]' id='Title'>
   </div>
 
-  <div>
-    <%= form.label :description, style: "display: block" %>
-    <%= form.text_area :description %>
+  <div class='mb-auto'>
+    <label for='description' class='form-label'>Description</label>
+    <textarea class='form-control' name='project[description]' id='Description' rows='4' ></textarea>
   </div>
 
-  <div>
-    <%= form.submit %>
-  </div>
+  <br>
+
+<button type='submit' class='btn btn-info'>Submit</button>
+
 <% end %>
