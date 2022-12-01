@@ -1,24 +1,19 @@
-# README
+CLASS: CS 3300 Intro to Software Engineering (M.Eng. SWE Prereq)
+PROF: Tom Hastings
+SEMESTER: Fall 2022
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+DESCRIPTION: A personal portfolio web application.
 
-Things you may want to cover:
+DEVLOPMENT TOOLS USED:
+- Ruby 3.0.2
+- Rails 
 
-* Ruby version
+CI/CD:
+- CircleCI
+- Heroku18
 
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+TESTING TOOL:
+- RSpec 4.0.1
+- Capybara
+- Factory-bot
+- SimpleCov
