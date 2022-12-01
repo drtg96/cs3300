@@ -1,26 +1,38 @@
-<p id="notice"><%= notice %></p>
+<p id="notice" class="mt-2" style="color: green"> <%= notice %></p>
 
-  <div class='jumbotron jumbotron-fluid'>
-    <div class="w-100 wp-3 mb-2 text-nowrap fs-1 fw-bold text-white bg-secondary bg-gradient text-center">Daniel Thomson's Portfolio</div>
-      
-    <h2>Projects</h2>
+ <div class='jumbotron jumbotron-fluid'>
 
-<div class='container'>
-  <% @projects.each do |project| %> 
-  <div class='row'>      
-    <div class='card mb-2'>
-      <div class='card-body'>
-        <p><h4><%= project.title %></h4></p>
-        <!-- <p><%= project.description %></p> -->
-        <td><%= link_to 'Learn more', project %></td>
-        <% if user_signed_in? %>
-          || <td><%= link_to 'Edit', edit_project_path(project) %></td>
-          || <td><%= link_to 'Delete', project, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <div class="w-100 wp-3 mb-2 text-nowrap fs-1 fw-bold text-white bg-secondary bg-gradient text-center">
+    Daniel Thomson's Portfolio
+  </div>    
+  
+  <h2>Projects</h2>
+
+    <% @projects.each_slice(3) do |sliced_project| %> 
+      <div class='row'>
+        <% sliced_project.each do |project| %> 
+          <div class='col mb-1'>  
+            <div class='card'>
+              <div class='card-body'>
+                <h4><%= project.title %></h4>
+                <div class="p-1 fs-5 fw-bold text-primary bg-light bg-gradient">
+                  <div class="d-flex justify-content-start align-items-center">                   
+                    <%= button_to 'Learn more', project, method: :get,
+                      class: "btn btn-light me-3 btn-outline-primary" %>
+                    <% if user_signed_in? %>
+                      <%= button_to 'Edit', edit_project_path(project), method: :get,
+                      class: "btn btn-light me-3 btn-outline-primary" %>
+            
+                      <%= button_to "Delete", project, method: :delete,
+                      class: "btn btn-light me-3 btn-outline-primary" %>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
         <% end %>
-      </div>
-    </div>
-  </div>
-<% end %>
-</div>
+      </div>    
+    <% end %>
 
-<p>Hi, my name is Daniel T, this is my portfolio. Enjoy!</p>
+</div>

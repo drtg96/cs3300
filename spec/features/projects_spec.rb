@@ -6,12 +6,12 @@ def login_user
 end
 
 RSpec.feature "Projects:", type: :feature do
+  
   context "Create new project tests" do
     before(:each) do
       login_user
       visit new_project_path
       fill_in "Title", with: "Test title"
-      end
     end
 
     scenario "should be successful" do
@@ -52,8 +52,8 @@ RSpec.feature "Projects:", type: :feature do
     scenario "remove project" do
       login_user
       visit project_path(project)
-      click_button "Destroy"
-      expect(page).to have_content("Project was successfully destroyed")
+      click_button "Delete"
+      expect(page).to have_content("Project was successfully deleted")
       expect(Project.count).to eq(0)
     end
   end

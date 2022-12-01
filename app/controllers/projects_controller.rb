@@ -1,6 +1,6 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[ show edit update destroy ]
-  before_action :authenticate_user!, except: [ :index, :show ]
+  before_action :authenticate_user!, except: [ :index, :show, :about ]
 
   # GET /projects or /projects.json
   def index
@@ -53,9 +53,13 @@ class ProjectsController < ApplicationController
     @project.destroy
 
     respond_to do |format|
-      format.html { redirect_to projects_url, notice: "Project was successfully destroyed." }
+      format.html { redirect_to projects_url, notice: "Project was successfully deleted." }
       format.json { head :no_content }
     end
+  end
+
+  # get projects/about
+  def about
   end
 
   private

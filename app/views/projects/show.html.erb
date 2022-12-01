@@ -1,17 +1,21 @@
 <p style="color: green"><%= notice %></p>
 
   <div class='jumbotron jumbotron-fluid'>
-      <div class="w-100 wp-3 mb-2 text-nowrap fs-1 fw-bold text-white bg-success text-center"> <%= @project.title %> </div>
+      <div class="w-100 wp-3 mb-2 text-nowrap fs-1 fw-bold text-white bg-success bg-gradient text-center"> <%= @project.title %> </div>
 
-      <div class="p-0 mb-5 text-wrap fs-5 text-dark">
+      <div class="p-0 mb-5 text-wrap fs-5 text-dark ">
         <span class="border-start"> <%= @project.description %> </span>
       </div>
   </div>
 
 <% if user_signed_in? %>
-  
-  <div class="p-3 fs-5 fw-bold text-primary bg-dark"> 
-      <%= link_to 'Edit', edit_project_path(@project) %>
-      || <%= link_to "Delete", @project, method: :delete %>
+  <div class="p-1 fs-5 fw-bold text-primary bg-secondary bg-gradient"> 
+    <div class="d-flex justify-content-center align-items-center">        
+        <%= button_to 'Edit', edit_project_path(@project), method: :get,
+         class: "btn btn-light me-3 btn-outline-primary" %>
+
+        <%= button_to "Delete", @project, method: :delete,
+        class: "btn btn-light me-3 btn-outline-primary" %>
+    </div>
   </div>
 <% end %>
