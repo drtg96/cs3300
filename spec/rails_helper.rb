@@ -11,6 +11,17 @@ require 'rspec/rails'
 
 # Add additional requires below this line. Rails is not loaded until this point!
 
+require 'simplecov'
+SimpleCov.start 'rails' do
+    add_filter '/bin/'
+    add_filter '/db/'
+    add_filter '/spec/' # for rspec
+    add_filter '/app/mailers/application_mailer.rb'
+    add_filter '/app/channels/application_cable/channel.rb'
+    add_filter '/app/channels/application_cable/connection.rb'
+    add_filter '/app/jobs/application_job.rb'
+  end
+
 #adding devise
 require 'devise'
 require_relative 'support/controller_macros'
@@ -76,14 +87,3 @@ RSpec.configure do |config|
   # arbitrary gems may also be filtered via:
   # config.filter_gems_from_backtrace("gem name")
 end
-
-require 'simplecov'
-SimpleCov.start 'rails' do
-    add_filter '/bin/'
-    add_filter '/db/'
-    add_filter '/spec/' # for rspec
-    add_filter '/app/mailers/application_mailer.rb'
-    add_filter '/app/channels/application_cable/channel.rb'
-    add_filter '/app/channels/application_cable/connection.rb'
-    add_filter '/app/jobs/application_job.rb'
-  end
